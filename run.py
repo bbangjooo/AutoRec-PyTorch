@@ -19,11 +19,12 @@ def check_positive(val):
         raise argparse.ArgumentError(f'{val} is invalid value. epochs should be positive integer')
     return val
 
-parser = argparse.ArgumentParser(description='matrix factorization with pytorch')
+parser = argparse.ArgumentParser(description='AutoRec with PyTorch')
 parser.add_argument('--epochs', '-e', type=check_positive, default=30)
 parser.add_argument('--batch', '-b', type=check_positive, default=32)
 parser.add_argument('--lr', '-l', type=float, help='learning rate', default=1e-3)
 parser.add_argument('--wd', '-w', type=float, help='weight decay(lambda)', default=1e-2)
+parser.add_argument('--ksize', '-k', type=check_positive, help='hidden layer feature_size', default=200)
 
 args = parser.parse_args()
 
